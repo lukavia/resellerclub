@@ -1,0 +1,27 @@
+{
+  "name": "resellerclub",
+  "version": "0.0.1",
+  "description": "ResellerClub REST API wrapper",
+  "keywords": [
+    "resellerclub",
+    "domain",
+    "hosting"
+  ],
+  "author": "Anton Avramov",
+  "license": "MIT",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukavia/resellerclub"
+  },
+  "main": "resellerclub.js",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/lukavia/resellerclub/issues",
+    "email": "lukav@lukav.com"
+  },
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/lukavia/resellerclub"
+}
