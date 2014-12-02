@@ -78,17 +78,17 @@ ResellerClub.prototype._post = function(apiClass, method, callback, args) {
 // Domains API
 // 
 
-Domains.prototype.available = function(callback, domainNames, tlds, alternatives) {
-  this.parent._get('domains', 'available', callback, {'domain-name':domainNames,'tlds':tlds,'suggest-alternative':(alternatives)?'true':'false'});
+Domains.prototype.available = function(callback, args) {
+  this.parent._get('domains', 'available', callback, args);
 }
 
-Domains.prototype.register = function(callback, domainName, years, ns, customerId, contacts, invoice) {
-  var args = {'domain-name':domainName, 'years':years, 'ns':ns, 'customer-id':customerId, 'invoice-option':invoice};
-  if (parseInt(contacts)){
+Domains.prototype.register = function(callback, args) {
+  if (args['contacts']){
     var carr = ['reg-contact-id','admin-contact-id','tech-contact-id','billing-contact-id'];
     for(f in carr){
-      args[carr[f]] = contacts;
+      args[carr[f]] = args['contacts'];
     }
+    delete args['contacts'];
   }
   this.parent._post('domains', 'register', callback, args);
 }
