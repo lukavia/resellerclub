@@ -44,7 +44,11 @@ ResellerClub.prototype._request = function(method, path, data, callback, args) {
       if (json.error) {
         callback(json.error);
       } else {
-        callback(null, json);
+        if (json.status == 'ERROR'){
+          callback(json.message);
+        } else {
+          callback(null, json);
+        }
       }
     });
   });
@@ -70,7 +74,6 @@ ResellerClub.prototype._post = function(apiClass, method, callback, args) {
   args['auth-userid'] = this.userId;
   args['api-key'] = this.key;
   var data = querystring.stringify(args);
-  console.log(data);
   this._request('post', path, data, callback, args);
 }
 
