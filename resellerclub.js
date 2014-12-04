@@ -78,11 +78,11 @@ ResellerClub.prototype._post = function(apiClass, method, callback, args) {
 // Domains API
 // 
 
-Domains.prototype.available = function(callback, args) {
+Domains.prototype.available = function(args, callback) {
   this.parent._get('domains', 'available', callback, args);
 }
 
-Domains.prototype.register = function(callback, args) {
+Domains.prototype.register = function(args, callback) {
   if (args['contacts']){
     var carr = ['reg-contact-id','admin-contact-id','tech-contact-id','billing-contact-id'];
     for(f in carr){
